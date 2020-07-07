@@ -1,35 +1,16 @@
-# Two Fer
+# Reverse String
 
-`Two-fer` or `2-fer` is short for two for one. One for you and one for me.
+Reverse a string
 
-Given a name, return a string with the message:
-
-```text
-One for name, one for me.
-```
-
-Where "name" is the given name.
-
-However, if the name is missing, return the string:
-
-```text
-One for you, one for me.
-```
-
-Here are some examples:
-
-|Name    |String to return
-|:-------|:------------------
-|Alice   |One for Alice, one for me.
-|Bob     |One for Bob, one for me.
-|        |One for you, one for me.
-|Zaphod  |One for Zaphod, one for me.
+For example:
+input: "cool"
+output: "looc"
 
 
 Run the tests with:
 
 ```bash
-bats two_fer_test.sh
+bats reverse_string_test.sh
 ```
 
 After the first test(s) pass, continue by commenting out or removing the
@@ -39,12 +20,12 @@ annotations prepending other tests.
 To run all tests, including the ones with `skip` annotations, run:
 
 ```bash
-BATS_RUN_SKIPPED=true bats two_fer_test.sh
+BATS_RUN_SKIPPED=true bats reverse_string_test.sh
 ```
 
 ## Source
 
-[https://github.com/exercism/problem-specifications/issues/757](https://github.com/exercism/problem-specifications/issues/757)
+Introductory challenge to reverse an input string [https://medium.freecodecamp.org/how-to-reverse-a-string-in-javascript-in-3-different-ways-75e4763c68cb](https://medium.freecodecamp.org/how-to-reverse-a-string-in-javascript-in-3-different-ways-75e4763c68cb)
 
 
 ## External utilities

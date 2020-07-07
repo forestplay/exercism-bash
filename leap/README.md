@@ -1,35 +1,33 @@
-# Two Fer
+# Leap
 
-`Two-fer` or `2-fer` is short for two for one. One for you and one for me.
+Given a year, report if it is a leap year.
 
-Given a name, return a string with the message:
-
-```text
-One for name, one for me.
-```
-
-Where "name" is the given name.
-
-However, if the name is missing, return the string:
+The tricky thing here is that a leap year in the Gregorian calendar occurs:
 
 ```text
-One for you, one for me.
+on every year that is evenly divisible by 4
+  except every year that is evenly divisible by 100
+    unless the year is also evenly divisible by 400
 ```
 
-Here are some examples:
+For example, 1997 is not a leap year, but 1996 is.  1900 is not a leap
+year, but 2000 is.
 
-|Name    |String to return
-|:-------|:------------------
-|Alice   |One for Alice, one for me.
-|Bob     |One for Bob, one for me.
-|        |One for you, one for me.
-|Zaphod  |One for Zaphod, one for me.
+## Notes
+
+Though our exercise adopts some very simple rules, there is more to
+learn!
+
+For a delightful, four minute explanation of the whole leap year
+phenomenon, go watch [this youtube video][video].
+
+[video]: http://www.youtube.com/watch?v=xX96xng7sAE
 
 
 Run the tests with:
 
 ```bash
-bats two_fer_test.sh
+bats leap_test.sh
 ```
 
 After the first test(s) pass, continue by commenting out or removing the
@@ -39,12 +37,12 @@ annotations prepending other tests.
 To run all tests, including the ones with `skip` annotations, run:
 
 ```bash
-BATS_RUN_SKIPPED=true bats two_fer_test.sh
+BATS_RUN_SKIPPED=true bats leap_test.sh
 ```
 
 ## Source
 
-[https://github.com/exercism/problem-specifications/issues/757](https://github.com/exercism/problem-specifications/issues/757)
+JavaRanch Cattle Drive, exercise 3 [http://www.javaranch.com/leap.jsp](http://www.javaranch.com/leap.jsp)
 
 
 ## External utilities

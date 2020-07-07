@@ -1,35 +1,37 @@
-# Two Fer
+# Resistor Color Duo
 
-`Two-fer` or `2-fer` is short for two for one. One for you and one for me.
+If you want to build something using a Raspberry Pi, you'll probably use _resistors_. For this exercise, you need to know two things about them:
 
-Given a name, return a string with the message:
+* Each resistor has a resistance value.
+* Resistors are small - so small in fact that if you printed the resistance value on them, it would be hard to read.
+To get around this problem, manufacturers print color-coded bands onto the resistors to denote their resistance values. Each band has a position and a numeric value. For example, if they printed a brown band (value 1) followed by a green band (value 5), it would translate to the number 15.
 
-```text
-One for name, one for me.
-```
+In this exercise you are going to create a helpful program so that you don't have to remember the values of the bands. The program will take color names as input and output a two digit number, even if the input is more than two colors!
 
-Where "name" is the given name.
 
-However, if the name is missing, return the string:
+The band colors are encoded as follows:
 
-```text
-One for you, one for me.
-```
+- Black: 0
+- Brown: 1
+- Red: 2
+- Orange: 3
+- Yellow: 4
+- Green: 5
+- Blue: 6
+- Violet: 7
+- Grey: 8
+- White: 9
 
-Here are some examples:
+From the example above:
+brown-green should return 15
+brown-green-violet should return 15 too, ignoring the third color.
 
-|Name    |String to return
-|:-------|:------------------
-|Alice   |One for Alice, one for me.
-|Bob     |One for Bob, one for me.
-|        |One for you, one for me.
-|Zaphod  |One for Zaphod, one for me.
 
 
 Run the tests with:
 
 ```bash
-bats two_fer_test.sh
+bats resistor_color_duo_test.sh
 ```
 
 After the first test(s) pass, continue by commenting out or removing the
@@ -39,12 +41,12 @@ annotations prepending other tests.
 To run all tests, including the ones with `skip` annotations, run:
 
 ```bash
-BATS_RUN_SKIPPED=true bats two_fer_test.sh
+BATS_RUN_SKIPPED=true bats resistor_color_duo_test.sh
 ```
 
 ## Source
 
-[https://github.com/exercism/problem-specifications/issues/757](https://github.com/exercism/problem-specifications/issues/757)
+Maud de Vries, Erik Schierboom [https://github.com/exercism/problem-specifications/issues/1464](https://github.com/exercism/problem-specifications/issues/1464)
 
 
 ## External utilities
