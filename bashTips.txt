@@ -1,0 +1,7 @@
+Concise way to manage the optional input: ${var:-default} form of parameter expansion here in the manual.
+
+
+For arithmetic operations (numbers), prefer (( over [[. (( is an arithmetic operation while [[ is used for strings.
+
+
+Remember to always quote your variable expansions!
