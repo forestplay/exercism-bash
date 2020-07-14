@@ -36,7 +36,6 @@ colorToValue () {
       echo "invalid color"
       ;;
   esac
-  
 }
 
 value=$(colorToValue "$1")$(colorToValue "$2")
@@ -45,5 +44,5 @@ if [[ ! $value =~ ^[0-9]+$ ]];then
   echo "invalid color"
   exit 1
 else
-  echo $value
+  echo "$value"
 fi
