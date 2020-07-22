@@ -2,6 +2,8 @@ Concise way to manage the optional input: ${var:-default} form of parameter expa
 
 
 For arithmetic operations (numbers), prefer (( over [[. (( is an arithmetic operation while [[ is used for strings.
+Also, avoid let command for initializing number variables.  Using (( )) instead.
 
 
 Remember to always quote your variable expansions!
+
