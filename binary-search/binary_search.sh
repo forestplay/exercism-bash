@@ -15,16 +15,20 @@ shift $((OPTIND - 1))
 
 binarySearch() {
   local searchValue=$1
-  local startIndex=$2
-  local stopIndex=$3
-  IFS=', -_*' read -r -a array <<<"$4"
-  while ((startIndex <= stopIndex)); do
-    ((midIndex = startIndex + (stopIndex - startIndex) / 2))
+  local leftIndex=0
+  local midIndex=0
+  local rightIndex=0
+  local array
+  IFS=', -_*' read -r -a array <<<"$2"
+  ((rightIndex = ${#array[@]} - 1))
+
+  while ((leftIndex <= rightIndex)); do
+    ((midIndex = leftIndex + (rightIndex - leftIndex) / 2))
 
     if [[ $debug == true ]]; then
-      echo "-- Start bin search --"
-      echo "$searchValue" "$startIndex" "$midIndex" "$stopIndex"
-      for value in "${array[@]:$startIndex:$stopIndex}"; do
+      echo "-- Start binary search loop --"
+      echo "$searchValue" "$leftIndex" "$midIndex" "$rightIndex"
+      for value in "${array[@]:$leftIndex:$rightIndex}"; do
         echo -n "$value "
       done
       echo
@@ -34,26 +38,16 @@ binarySearch() {
       echo "$midIndex"
       return
     elif ((searchValue < array[midIndex])); then
-      ((stopIndex = midIndex - 1))
+      ((rightIndex = midIndex - 1))
     else
-      ((startIndex = midIndex + 1))
+      ((leftIndex = midIndex + 1))
     fi
   done
   echo -1
 }
 
-main() {
-  local searchValue="$1"
-  if [[ $2 == "" ]]; then
-    echo -1
-    exit 1
-  fi
-  IFS=', -_*' read -r -a array <<<"$2"
-
-  local startValue=0
-  ((stopValue = ${#array[@]} - 1))
-  binarySearch "$searchValue" "$startValue" "$stopValue" "${array[*]}"
-}
-
-# call main with all of the positional arguments
-main "$@"
+if [[ $2 == "" ]]; then
+  echo -1
+  exit 1
+fi
+binarySearch "$1" "$2"
